@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="baskets_and_apples/buckets_with_apples.csproj" Id="0ba547c8-0af2-45e3-9b95-44ca844abfe3" />
+  <Project Path="humans/humans.csproj" Id="eeedfc98-e922-4b43-b402-e80b92b0159a" />
+  <Project Path="mainprog/mainprog.csproj" />
+</Solution>
