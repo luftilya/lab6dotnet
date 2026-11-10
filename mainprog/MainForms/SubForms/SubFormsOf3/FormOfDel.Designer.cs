@@ -30,7 +30,7 @@
         {
             label = new Label();
             no_button = new Button();
-            button1 = new Button();
+            yes_button = new Button();
             SuspendLayout();
             // 
             // label
@@ -55,25 +55,28 @@
             no_button.UseVisualStyleBackColor = true;
             no_button.Click += no_button_Click;
             // 
-            // button1
+            // yes_button
             // 
-            button1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(172, 81);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 57);
-            button1.TabIndex = 2;
-            button1.Text = "Да";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            yes_button.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            yes_button.Location = new Point(172, 81);
+            yes_button.Name = "yes_button";
+            yes_button.Size = new Size(125, 57);
+            yes_button.TabIndex = 2;
+            yes_button.Text = "Да";
+            yes_button.UseVisualStyleBackColor = true;
+            yes_button.Click += yes_button_Click;
             // 
             // FormOfDel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(310, 150);
-            Controls.Add(button1);
+            Controls.Add(yes_button);
             Controls.Add(no_button);
             Controls.Add(label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfDel";
             Text = "Удалить адрес";
             ResumeLayout(false);
@@ -84,6 +87,6 @@
 
         private Label label;
         private Button no_button;
-        private Button button1;
+        private Button yes_button;
     }
 }

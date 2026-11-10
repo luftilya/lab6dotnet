@@ -31,7 +31,22 @@ public partial class FormOf3 : Form
 
     private void listBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        adress_label.Text = listBox.SelectedItem?.ToString();
-        nick_label.Text = hashtable[listBox.SelectedItem?.ToString()].ToString();
+        var elem = listBox.SelectedItem?.ToString();
+        if (elem is not null)
+        {
+            adress_label.Text = elem;
+            nick_label.Text = hashtable[elem].ToString();
+        }
+    }
+
+    private void listBox_MouseDown(object sender, MouseEventArgs e)
+    {
+        if (e.Button == MouseButtons.Right)
+        {
+            int index = listBox.IndexFromPoint(e.Location);
+
+            if (index is not ListBox.NoMatches)
+                listBox.SelectedIndex = index;
+        }
     }
 }

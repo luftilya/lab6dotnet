@@ -74,6 +74,9 @@
             Controls.Add(yes_button);
             Controls.Add(label1);
             Controls.Add(no_button);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfDel";
             Text = "Выкинуть корзинку";
             ResumeLayout(false);

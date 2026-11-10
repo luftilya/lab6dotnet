@@ -70,6 +70,9 @@
             Controls.Add(button);
             Controls.Add(textBox);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfPut";
             Text = "Положить яблочки в корзинку";
             ResumeLayout(false);

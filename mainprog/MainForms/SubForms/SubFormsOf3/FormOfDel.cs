@@ -26,10 +26,10 @@ public partial class FormOfDel : Form
         this.al = al;
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void yes_button_Click(object sender, EventArgs e)
     {
-        ht.Remove(lB.SelectedItem?.ToString());
-
+        ht.Remove(lB.SelectedItem.ToString());
+        lB.Items.Remove(lB.SelectedItem.ToString());
         nl.Text = "Боже! Куда он делся?!";
         al.Text = "И дома-то нет!!";
         this.Close();

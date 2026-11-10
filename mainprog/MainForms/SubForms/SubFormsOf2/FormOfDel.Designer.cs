@@ -73,6 +73,8 @@
             Controls.Add(yes_button);
             Controls.Add(no_button);
             Controls.Add(label);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfDel";
             Text = "Удалить сведения о жертве";
             ResumeLayout(false);

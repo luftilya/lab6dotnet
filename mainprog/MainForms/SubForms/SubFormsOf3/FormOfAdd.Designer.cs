@@ -94,6 +94,9 @@
             Controls.Add(button);
             Controls.Add(nick_textBox);
             Controls.Add(nick_input_label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfAdd";
             Text = "Добавить жителя";
             ResumeLayout(false);

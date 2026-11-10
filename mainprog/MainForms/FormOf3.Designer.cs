@@ -40,6 +40,7 @@
             add_ToolStripMenuItem = new ToolStripMenuItem();
             change_ToolStripMenuItem = new ToolStripMenuItem();
             delete_ToolStripMenuItem = new ToolStripMenuItem();
+            help_label = new Label();
             contextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,6 +83,7 @@
             listBox.Size = new Size(357, 373);
             listBox.TabIndex = 3;
             listBox.SelectedIndexChanged += listBox_SelectedIndexChanged;
+            listBox.MouseDown += listBox_MouseDown;
             // 
             // listBox_label
             // 
@@ -139,11 +141,22 @@
             delete_ToolStripMenuItem.Text = "Удалить";
             delete_ToolStripMenuItem.Click += delete_ToolStripMenuItem_Click;
             // 
+            // help_label
+            // 
+            help_label.AutoSize = true;
+            help_label.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            help_label.Location = new Point(12, 116);
+            help_label.Name = "help_label";
+            help_label.Size = new Size(717, 31);
+            help_label.TabIndex = 7;
+            help_label.Text = "Для работы со списком нажмите правой кнопкой мыши по списку";
+            // 
             // FormOf3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1128, 467);
+            Controls.Add(help_label);
             Controls.Add(adress_label);
             Controls.Add(nick_label);
             Controls.Add(listBox_label);
@@ -151,6 +164,9 @@
             Controls.Add(adress_mainlabel);
             Controls.Add(nick_mainlabel);
             Controls.Add(history_label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOf3";
             Text = "Хэш-таблица по теме \"человек\"";
             contextMenuStrip.ResumeLayout(false);
@@ -171,5 +187,6 @@
         private ToolStripMenuItem add_ToolStripMenuItem;
         private ToolStripMenuItem delete_ToolStripMenuItem;
         private ToolStripMenuItem change_ToolStripMenuItem;
+        private Label help_label;
     }
 }

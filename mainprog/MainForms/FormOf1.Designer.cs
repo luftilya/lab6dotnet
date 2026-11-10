@@ -176,6 +176,9 @@
             Controls.Add(listBox_label);
             Controls.Add(buckets_listBox);
             Controls.Add(history_label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOf1";
             Text = "Создать однородную коллекцию List<T>";
             contextMenuStrip.ResumeLayout(false);

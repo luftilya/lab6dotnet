@@ -136,6 +136,9 @@
             Controls.Add(descriptions_label);
             Controls.Add(age_label);
             Controls.Add(name_label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfAdd";
             Text = "Добавить жертву политических репрессий";
             ResumeLayout(false);

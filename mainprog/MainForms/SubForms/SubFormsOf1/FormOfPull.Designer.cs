@@ -71,6 +71,9 @@
             Controls.Add(textBox);
             Controls.Add(button);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfPull";
             Text = "Выложить яблочки из корзинки";
             ResumeLayout(false);

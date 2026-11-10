@@ -155,6 +155,9 @@
             Controls.Add(help_label);
             Controls.Add(listBox);
             Controls.Add(history_label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOf2";
             Text = "Создать разнородную коллекцию List<T> по теме человек";
             contextMenuStrip.ResumeLayout(false);

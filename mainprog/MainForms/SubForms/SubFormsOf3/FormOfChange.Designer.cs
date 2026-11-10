@@ -107,6 +107,9 @@
             Controls.Add(textBox);
             Controls.Add(history_continue_label);
             Controls.Add(history_label);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormOfChange";
             Text = "Сменить жителя по адресу...";
             ResumeLayout(false);
