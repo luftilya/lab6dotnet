@@ -25,7 +25,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\baskets_and_apples\buckets_with_apples.csproj" />
+    <ProjectReference Include="..\help_console_input_tools\help_console_input_tools.csproj" />
     <ProjectReference Include="..\humans\humans.csproj" />
+    <ProjectReference Include="..\lab6_task1\lab6_task1.csproj" />
+    <ProjectReference Include="..\lab6_task2\lab6_task2.csproj" />
+    <ProjectReference Include="..\lab6_task3\lab6_task3.csproj" />
   </ItemGroup>
 
 </Project>

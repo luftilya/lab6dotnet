@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\baskets_and_apples\buckets_with_apples.csproj" />
+    <ProjectReference Include="..\help_console_input_tools\help_console_input_tools.csproj" />
+  </ItemGroup>
+
+</Project>

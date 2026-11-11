@@ -3,6 +3,10 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="baskets_and_apples/buckets_with_apples.csproj" Id="0ba547c8-0af2-45e3-9b95-44ca844abfe3" />
+  <Project Path="help_console_input_tools/help_console_input_tools.csproj" Id="b32633c6-6d1b-4da2-acc1-d48ccb9c97d0" />
   <Project Path="humans/humans.csproj" Id="eeedfc98-e922-4b43-b402-e80b92b0159a" />
+  <Project Path="lab6_task1/lab6_task1.csproj" Id="00545a67-c9f6-46af-8b1d-37d3c765a216" />
+  <Project Path="lab6_task2/lab6_task2.csproj" Id="0a85e2df-4c19-4faa-ba0c-782cdead5fc3" />
+  <Project Path="lab6_task3/lab6_task3.csproj" Id="982da9c0-9b02-4dcd-a538-a2bbabb3c6d1" />
   <Project Path="mainprog/mainprog.csproj" />
 </Solution>
