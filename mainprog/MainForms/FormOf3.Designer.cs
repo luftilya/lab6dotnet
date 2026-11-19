@@ -1,4 +1,4 @@
-﻿namespace mainprog
+﻿namespace MainProg
 {
     partial class FormOf3
     {

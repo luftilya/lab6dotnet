@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\baskets_and_apples\buckets_with_apples.csproj" />
-    <ProjectReference Include="..\help_console_input_tools\help_console_input_tools.csproj" />
+    <ProjectReference Include="..\help_console_input_tools\ConsoleHelpInputTools.csproj" />
+    <ProjectReference Include="..\humans\Humans.csproj" />
   </ItemGroup>
 
 </Project>

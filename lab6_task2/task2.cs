@@ -1,9 +1,9 @@
-﻿using humans;
-using help_console_input_tools;
+﻿using HumansLib;
+using ConsoleHelpInputToolsLib;
 
-namespace lab6_task2;
+namespace Lab6Task2;
 
-public class task2
+public class Task2
 {
     public static void Run()
     {

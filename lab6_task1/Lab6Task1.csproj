@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\InterfaceLibs\ConsoleMenuLib\ConsoleMenuLib.csproj" />
+    <ProjectReference Include="..\baskets_and_apples\BucketsWithApples.csproj" />
+    <ProjectReference Include="..\help_console_input_tools\ConsoleHelpInputTools.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-﻿namespace help_console_input_tools;
+﻿namespace ConsoleHelpInputToolsLib;
 
 public class Help
 {

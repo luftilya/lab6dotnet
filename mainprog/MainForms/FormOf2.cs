@@ -1,5 +1,5 @@
-﻿using humans;
-using mainprog.MainForms.SubForms.SubFormsOf2;
+﻿using HumansLib;
+using MainProg.MainForms.SubForms.SubFormsOf2;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace mainprog;
+namespace MainProg;
 
 public partial class FormOf2 : Form
 {

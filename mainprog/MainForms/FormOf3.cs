@@ -1,4 +1,4 @@
-﻿using mainprog.MainForms.SubForms.SubFormsOf3;
+﻿using MainProg.MainForms.SubForms.SubFormsOf3;
 
 using System;
 using System.Collections;
@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace mainprog;
+namespace MainProg;
 
 public partial class FormOf3 : Form
 {

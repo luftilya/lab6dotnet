@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace humans
+namespace HumansLib
 {
     public class Humans
     {

@@ -1,4 +1,4 @@
-﻿namespace mainprog.MainForms.SubForms.SubFormsOf2
+﻿namespace MainProg.MainForms.SubForms.SubFormsOf2
 {
     partial class FormOfDel
     {

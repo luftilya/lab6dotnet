@@ -1,36 +1,40 @@
-﻿using buckets_with_apples;
-using help_console_input_tools;
+﻿using BucketsWithApplesLib;
+using ConsoleMenuLib;
+using ConsoleHelpInputToolsLib;
 
-namespace lab6_task1;
+namespace Lab6Task1;
 
-public class task1
+public class Task1
 {
     public static void Run()
     {
-        var buckets = new List<BucketWithApples>();
+        List<BucketWithApples> buckets = new();
+
         while (true)
         {
 
             Console.Clear();
-            Console.WriteLine("/ Создать однородную коллекцию List<T>...\\");
-            Console.WriteLine("+-------------------------------------...+");
-            Console.WriteLine("| Вы оказались на центральном рынке\n| с корзинками для яблок\n| и непременно хотите их заполнить.");
-            Console.WriteLine("+-------------------------------------...+");
-            Console.WriteLine("| 1) принести ещё одну корзинку ^^");
-            Console.WriteLine("| 2) выкинуть одну корзинку >:(");
-            Console.WriteLine("| 3) положить яблочки в корзинку :)");
-            Console.WriteLine("| 4) выложить яблочки из корзинки :(");
-            Console.WriteLine("\\-------------------------------------.../");
-            Console.Write("| Корзинки: ");
+            ConsoleMenu.WriteTask(1);
+            ConsoleMenu.WriteLineContent("Вы оказались на центральном рынке");
+            ConsoleMenu.WriteLineContent("с корзинками для яблок");
+            ConsoleMenu.WriteLineContent("и непременно хотите их заполнить.");
+            ConsoleMenu.WriteFiller();
+            ConsoleMenu.WriteLineContent("1) принести ещё одну корзинку ^^");
+            ConsoleMenu.WriteLineContent("2) выкинуть одну корзинку >:(");
+            ConsoleMenu.WriteLineContent("3) положить яблочки в корзинку :)");
+            ConsoleMenu.WriteLineContent("4) выложить яблочки из корзинки :(");
+            ConsoleMenu.WriteFiller();
+            ConsoleMenu.WriteContent("Корзинки: ");
 
             if (buckets.Count == 0)
                 Console.Write("нет корзинок :(");
             else
                 for (int i = 1; i <= buckets.Count; i++)
                     Console.Write($"К№{i}: {buckets[i - 1].GetApplesCount()} ябл.; ");
+            Console.WriteLine();
 
-            Console.WriteLine("\n/-------------------------------------...\\");
-            Console.Write("| Выберите цифру действия: ");
+            ConsoleMenu.WriteFiller();
+            ConsoleMenu.WriteContent("Введите цифру действия: ");
 
             string? choosed_task = Console.ReadLine();
 
@@ -46,48 +50,88 @@ public class task1
                     }
                 case "2":
                     {
-                        int? n = Help.GetBucketNumber();
+                        int? bucketNumber = Help.GetBucketNumber();
 
-                        if (n is null || n < 1 || n > buckets.Count)
+                        if (bucketNumber is null
+                            || bucketNumber < 1
+                            || bucketNumber > buckets.Count)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLineContent(
+                                "Ошибка! Вы ввели неправильное значение или не ввели ничего. Попробуйте ещё раз");
+                            ConsoleMenu.WriteContinue();
                             break;
+                        }
 
-                        buckets.RemoveAt(n.Value - 1);
-                        Console.WriteLine($"/ Вы выкинули кор. № {n}! Нажмите Enter для продолжения.");
-                        Console.ReadKey();
+                        buckets.RemoveAt(bucketNumber.Value - 1);
+                        ConsoleMenu.WriteLineContent(
+                            $"Вы выкинули кор. № {bucketNumber}!");
+                        ConsoleMenu.WriteContinue();
                         break;
                     }
                 case "3":
                     {
-                        int? n = Help.GetBucketNumber();
+                        int? bucketNumber = Help.GetBucketNumber();
 
-                        if (n is null || n < 1 || n > buckets.Count)
+                        if (bucketNumber is null
+                            || bucketNumber < 1
+                            || bucketNumber > buckets.Count)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLineContent(
+                                "Ошибка! Вы ввели неправильное значение или не ввели ничего. Попробуйте ещё раз");
+                            ConsoleMenu.WriteContinue();
                             break;
+                        }
 
-                        int? m = Help.GetApplesCount();
+                        int? applesCount = Help.GetApplesCount();
 
-                        if (m is null)
+                        if (applesCount is null)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLineContent(
+                                "Ошибка! Вы ввели неправильное значение или не ввели ничего. Попробуйте ещё раз");
+                            ConsoleMenu.WriteContinue();
                             break;
+                        }
 
-                        buckets[n.Value - 1].AddApples(m.Value);
-                        Console.WriteLine($"/ Вы положили {m} ябл. в кор. № {n}! Нажмите Enter для продолжения.");
-                        Console.ReadKey();
+                        buckets[bucketNumber.Value - 1].AddApples(applesCount.Value);
+                        ConsoleMenu.WriteLineContent(
+                            $"Вы положили {applesCount} ябл. в кор. № {bucketNumber}!");
+                        ConsoleMenu.WriteContinue();
                         break;
                     }
                 case "4":
                     {
-                        int? n = Help.GetBucketNumber();
+                        int? bucketNumber = Help.GetBucketNumber();
 
-                        if (n is null || n < 1 || n > buckets.Count)
+                        if (bucketNumber is null
+                            || bucketNumber < 1
+                            || bucketNumber > buckets.Count)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLineContent(
+                                "Ошибка! Вы ввели неправильное значение или не ввели ничего. Попробуйте ещё раз");
+                            ConsoleMenu.WriteContinue();
                             break;
+                        }
 
-                        int? m = Help.GetApplesCount();
+                        int? applesCount = Help.GetApplesCount();
 
-                        if (m is null || m.Value > buckets[n.Value - 1].GetApplesCount())
+                        if (applesCount is null
+                            || applesCount.Value > buckets[bucketNumber.Value - 1].GetApplesCount())
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLineContent(
+                                "Ошибка! Вы ввели неправильное значение или не ввели ничего. Попробуйте ещё раз");
+                            ConsoleMenu.WriteContinue();
                             break;
+                        }
 
-                        buckets[n.Value - 1].RemoveApples(m.Value);
-                        Console.WriteLine($"/ Вы выложили {m} ябл. из кор. № {n}! Нажмите Enter для продолжения.");
-                        Console.ReadKey();
+                        buckets[bucketNumber.Value - 1].RemoveApples(applesCount.Value);
+                        ConsoleMenu.WriteLineContent(
+                            $"Вы выложили {applesCount} ябл. из кор. № {bucketNumber}!");
+                        ConsoleMenu.WriteContinue();
                         break;
                     }
             }

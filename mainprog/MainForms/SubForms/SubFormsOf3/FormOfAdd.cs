@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace mainprog.MainForms.SubForms.SubFormsOf3;
+namespace MainProg.MainForms.SubForms.SubFormsOf3;
 
 public partial class FormOfAdd : Form
 {

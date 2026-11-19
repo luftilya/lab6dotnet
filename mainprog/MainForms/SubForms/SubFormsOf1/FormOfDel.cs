@@ -1,4 +1,4 @@
-﻿using buckets_with_apples;
+﻿using BucketsWithApplesLib;
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace mainprog.MainForms.SubForms.SubFormsOf1;
+namespace MainProg.MainForms.SubForms.SubFormsOf1;
 
 public partial class FormOfDel : Form
 {

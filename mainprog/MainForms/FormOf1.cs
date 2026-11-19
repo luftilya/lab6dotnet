@@ -1,5 +1,5 @@
-﻿using buckets_with_apples;
-using mainprog.MainForms.SubForms.SubFormsOf1;
+﻿using BucketsWithApplesLib;
+using MainProg.MainForms.SubForms.SubFormsOf1;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace mainprog;
+namespace MainProg;
 
 public partial class FormOf1 : Form
 {

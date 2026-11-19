@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace buckets_with_apples
+namespace BucketsWithApplesLib
 {
     public class BucketWithApples
     {

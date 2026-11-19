@@ -1,4 +1,4 @@
-﻿using humans;
+﻿using HumansLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace mainprog.MainForms.SubForms.SubFormsOf2;
+namespace MainProg.MainForms.SubForms.SubFormsOf2;
 
 public partial class FormOfAdd : Form
 {

@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>lab6</AssemblyName>
-    <ApplicationIcon>self_icon.ico</ApplicationIcon>
+    <ApplicationIcon>SelfIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,16 +20,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="self_icon.ico" />
+    <Content Include="SelfIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\baskets_and_apples\buckets_with_apples.csproj" />
-    <ProjectReference Include="..\help_console_input_tools\help_console_input_tools.csproj" />
-    <ProjectReference Include="..\humans\humans.csproj" />
-    <ProjectReference Include="..\lab6_task1\lab6_task1.csproj" />
-    <ProjectReference Include="..\lab6_task2\lab6_task2.csproj" />
-    <ProjectReference Include="..\lab6_task3\lab6_task3.csproj" />
+    <ProjectReference Include="..\..\InterfaceLibs\ConsoleMenuLib\ConsoleMenuLib.csproj" />
+    <ProjectReference Include="..\baskets_and_apples\BucketsWithApples.csproj" />
+    <ProjectReference Include="..\help_console_input_tools\ConsoleHelpInputTools.csproj" />
+    <ProjectReference Include="..\humans\Humans.csproj" />
+    <ProjectReference Include="..\lab6_task1\Lab6Task1.csproj" />
+    <ProjectReference Include="..\lab6_task2\Lab6Task2.csproj" />
+    <ProjectReference Include="..\lab6_task3\Lab6Task3.csproj" />
   </ItemGroup>
 
 </Project>

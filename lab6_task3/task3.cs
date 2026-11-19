@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 
-namespace lab6_task3;
+namespace Lab6Task3;
 
-public class task3
+public class Task3
 {
     public static void Run()
     {

@@ -1,4 +1,4 @@
-﻿using buckets_with_apples;
+﻿using BucketsWithApplesLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace mainprog.MainForms.SubForms.SubFormsOf1
+namespace MainProg.MainForms.SubForms.SubFormsOf1
 {
     public partial class FormOfPull : Form
     {
