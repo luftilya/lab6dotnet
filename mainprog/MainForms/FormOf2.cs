@@ -13,7 +13,7 @@ namespace MainProg;
 
 public partial class FormOf2 : Form
 {
-    List<Humans> victims = new List<Humans>();
+    List<Humans> victims = new();
 
     public FormOf2()
     {
@@ -26,7 +26,7 @@ public partial class FormOf2 : Form
             "Политехнический пер., 4",
             "ст. 58-10"
             ));
-        listBox.Items.Add(victims[0].GetName());
+        listBox.Items.Add(victims[0].Name);
     }
 
     private void listBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,10 +36,10 @@ public partial class FormOf2 : Form
         if (i is ListBox.NoMatches)
             return;
 
-        name_label.Text = victims[i].GetName();
-        age_label.Text = victims[i].GetAge().ToString();
-        adress_label.Text = victims[i].GetAdress();
-        descriptions_label.Text = victims[i].GetDescriptions();
+        name_label.Text = victims[i].Name;
+        age_label.Text = victims[i].Age.ToString();
+        adress_label.Text = victims[i].Adress;
+        descriptions_label.Text = victims[i].Descriptions;
     }
 
     private void listBox_MouseDown(object sender, MouseEventArgs e)

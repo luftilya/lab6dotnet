@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\InterfaceLibs\ConsoleMenuLib\ConsoleMenuLib.csproj" />
+  </ItemGroup>
+
 </Project>

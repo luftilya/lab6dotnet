@@ -155,6 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkGray;
             ClientSize = new Size(1128, 467);
             Controls.Add(help_label);
             Controls.Add(adress_label);

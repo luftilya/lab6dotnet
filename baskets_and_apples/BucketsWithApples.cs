@@ -4,12 +4,16 @@ namespace BucketsWithApplesLib
 {
     public class BucketWithApples
     {
-        int apples;
+        int _apples;
 
-        public int GetApplesCount() => apples;
+        public int Apples
+        {
+            get => _apples;
+            set => _apples = value;
+        }
 
-        public void AddApples(int apples) => this.apples += apples;
+        public void AddApples(int apples) => _apples += apples;
 
-        public void RemoveApples(int apples) => this.apples -= apples;
+        public void RemoveApples(int apples) => _apples -= apples;
     }
 }

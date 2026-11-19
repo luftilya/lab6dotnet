@@ -13,7 +13,7 @@ namespace MainProg;
 
 public partial class FormOf1 : Form
 {
-    List<BucketWithApples> buckets = new List<BucketWithApples>();
+    List<BucketWithApples> buckets = new();
 
     public FormOf1()
     {
@@ -32,7 +32,7 @@ public partial class FormOf1 : Form
         int index = buckets_listBox.SelectedIndex;
 
         if (index is not ListBox.NoMatches)
-            info_label.Text = buckets[index].GetApplesCount().ToString();
+            info_label.Text = buckets[index].Apples.ToString();
     }
 
     private void listBox_MouseDown(object sender, MouseEventArgs mouse)

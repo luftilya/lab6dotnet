@@ -23,10 +23,10 @@ public partial class FormOfChange : Form
         this.listBox = listBox;
 
         var i = listBox.SelectedIndex;
-        name_textBox.Text = victims[i].GetName();
-        age_textBox.Text = victims[i].GetAge().ToString();
-        adress_textBox.Text = victims[i].GetAdress();
-        descriptions_textBox.Text = victims[i].GetDescriptions();
+        name_textBox.Text = victims[i].Name;
+        age_textBox.Text = victims[i].Age.ToString();
+        adress_textBox.Text = victims[i].Adress;
+        descriptions_textBox.Text = victims[i].Descriptions;
     }
 
     private void button_Click(object sender, EventArgs e)
@@ -39,10 +39,10 @@ public partial class FormOfChange : Form
         {
             var i = listBox.SelectedIndex;
 
-            victims[i].SetName(name_textBox.Text);
-            victims[i].SetAge(age);
-            victims[i].SetAdress(adress_textBox.Text);
-            victims[i].SetDescriptions(descriptions_textBox.Text);
+            victims[i].Name = name_textBox.Text;
+            victims[i].Age = age;
+            victims[i].Adress = adress_textBox.Text;
+            victims[i].Descriptions = descriptions_textBox.Text;
             listBox.Items[i] = name_textBox.Text;
             this.Close();
         }

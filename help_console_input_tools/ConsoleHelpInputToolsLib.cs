@@ -1,21 +1,21 @@
-﻿namespace ConsoleHelpInputToolsLib;
+﻿using ConsoleMenuLib;
+
+namespace ConsoleHelpInputToolsLib;
 
 public class Help
 {
     public static int? GetIndexOfVictim()
     {
-        int n;
-        string? input;
-        Console.WriteLine("+----------------------------------------------------------...+");
-        Console.Write("\\ Введите номер жертвы из архива: ");
+        ConsoleMenu.WriteFiller();
+        Console.Write("| Введите номер жертвы из архива: ");
 
-        input = Console.ReadLine();
+        string? input = Console.ReadLine();
 
         if (input is null)
             return null;
 
-        if (int.TryParse(input, out n))
-            return n;
+        if (int.TryParse(input, out int number))
+            return number - 1;
         else
             return -1;
     }
@@ -46,13 +46,12 @@ public class Help
     {
         Console.Write("| Введите возраст жертвы: ");
 
-        int age;
         string? input = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(input))
             return null;
 
-        if (int.TryParse(input, out age))
+        if (int.TryParse(input, out int age))
             return age;
         else
             return -1;
@@ -60,7 +59,7 @@ public class Help
 
     public static string? GetVictimName()
     {
-        Console.WriteLine("+----------------------------------------------------------...+");
+        ConsoleMenu.WriteFiller();
         Console.Write("| Введите ФИО жертвы: ");
 
         string? input = Console.ReadLine();
@@ -72,37 +71,31 @@ public class Help
 
     public static int? GetApplesCount()
     {
-        int m;
-        string? input;
-
         Console.Write(" | Введите кол-во ябл. : ");
 
-        input = Console.ReadLine();
+        string? input = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(input))
             return null;
 
-        if (int.TryParse(input, out m))
-            return m;
+        if (int.TryParse(input, out int applesCount))
+            return applesCount;
         else
             return -1;
     }
 
     public static int? GetBucketNumber()
     {
-        int n;
-        string? input;
-
-        Console.WriteLine("\\-------------------------------------.../");
+        ConsoleMenu.WriteFiller();
         Console.Write(" | Введите № корзинки: ");
 
-        input = Console.ReadLine();
+        string? input = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(input))
             return null;
 
-        if (int.TryParse(input, out n))
-            return n;
+        if (int.TryParse(input, out int numberBucket))
+            return numberBucket;
         else
             return -1;
     }

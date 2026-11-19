@@ -33,7 +33,7 @@ public partial class FormOfPut : Form
             && int.TryParse(textBox.Text, out int n))
         {
             buckets[index].AddApples(n);
-            info_label.Text = buckets[index].GetApplesCount().ToString();
+            info_label.Text = buckets[index].Apples.ToString();
         }
         this.Close();
     }

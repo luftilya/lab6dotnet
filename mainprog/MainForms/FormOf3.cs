@@ -13,7 +13,7 @@ namespace MainProg;
 
 public partial class FormOf3 : Form
 {
-    Hashtable hashtable = new Hashtable();
+    Hashtable hashtable = new();
 
     public FormOf3()
     {
@@ -31,7 +31,7 @@ public partial class FormOf3 : Form
 
     private void listBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        var elem = listBox.SelectedItem?.ToString();
+        var elem = listBox.SelectedItem.ToString();
         if (elem is not null)
         {
             adress_label.Text = elem;

@@ -1,4 +1,5 @@
 ﻿using HumansLib;
+using ConsoleMenuLib;
 using ConsoleHelpInputToolsLib;
 
 namespace Lab6Task2;
@@ -7,41 +8,46 @@ public class Task2
 {
     public static void Run()
     {
-        var humans = new List<Humans>();
-        humans.Add(new Humans("Зеленев Илья Николаевич", 18, "Политехнический пер., 4", "ст. 58 ук рсфср"));
+        List<Humans> humans = new();
+        humans.Add(new Humans(
+            "Зеленев Илья Николаевич", 
+            18, 
+            "Политехнический пер., 4", 
+            "ст. 58 ук рсфср"));
 
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("/ Создать разнородную коллекцию List<T> по теме \"человек\"...\\");
-            Console.WriteLine("+----------------------------------------------------------...+");
-            Console.WriteLine("| Вы являетесь архивариусом городского архива\n| жертв политических репрессий. Вам нужно внести сведения\n| жертв: ФИО, ВОЗРАСТ, АДРЕС РОЖДЕНИЯ, ПОДРОБНОСТИ САНКЦИИ");
-            Console.WriteLine("+----------------------------------------------------------...+");
-            Console.WriteLine("| 1) Добавить жертву в архив :(");
-            Console.WriteLine("| 2) Удалить жертву из архива :)");
-            Console.WriteLine("| 3) Изменить данные жертвы в архиве :/");
-            Console.WriteLine("+----------------------------------------------------------...+");
-            Console.WriteLine("| ФИО, возраст, адресс и описание применной санкции           |");
-            Console.WriteLine("+----------------------------------------------------------...+");
+            ConsoleMenu.WriteTask(2);
+            ConsoleMenu.WriteLine("Вы являетесь архивариусом городского архива");
+            ConsoleMenu.WriteLine("жертв политических репрессий. Вам нужно внести сведения");
+            ConsoleMenu.WriteLine("жертв: ФИО, ВОЗРАСТ, АДРЕС РОЖДЕНИЯ, ПОДРОБНОСТИ САНКЦИИ");
+            ConsoleMenu.WriteFiller();
+            ConsoleMenu.WriteLine("1) Добавить жертву в архив :(");
+            ConsoleMenu.WriteLine("2) Удалить жертву из архива :)");
+            ConsoleMenu.WriteLine("3) Изменить данные жертвы в архиве :/");
+            ConsoleMenu.WriteFiller();
+            ConsoleMenu.WriteLine("ФИО, возраст, адресс и описание применной санкции");
+            ConsoleMenu.WriteFiller();
 
-            if (humans.Count < 0)
-                Console.WriteLine("Жертв нет! Да здравствует справедливость!");
+            if (humans.Count == 0)
+                ConsoleMenu.WriteLine("Жертв нет! Да здравствует справедливость!");
             else
                 for (int i = 0; i < humans.Count; i++)
-                    Console.WriteLine((i + 1) + " "
-                        + humans[i].GetName() + " "
-                        + humans[i].GetAge() + " "
-                        + humans[i].GetAdress() + " "
-                        + humans[i].GetDescriptions());
-            Console.WriteLine("+----------------------------------------------------------...+");
-            Console.Write("\\ Выберите цифру действия и нажмите Enter: ");
+                    ConsoleMenu.WriteLine((i + 1) + " "
+                        + humans[i].Name + " "
+                        + humans[i].Age + " "
+                        + humans[i].Adress + " "
+                        + humans[i].Descriptions);
+            ConsoleMenu.WriteFiller();
+            ConsoleMenu.Write("Введите цифру действия: ");
 
-            string? choosed_task = Console.ReadLine();
+            string? choosedTaskNumber = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(choosed_task))
+            if (string.IsNullOrWhiteSpace(choosedTaskNumber))
                 break;
 
-            switch (choosed_task)
+            switch (choosedTaskNumber)
             {
                 case "1":
                     {
@@ -52,8 +58,16 @@ public class Task2
 
                         int? age = Help.GetVictimAge();
 
-                        if (age is null || age < 0)
+                        if (age is null)
                             break;
+                        else if (age < 0)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLine(
+                                "Ошибка! Вы ввели невозможное значение возраста! Попробуйте ещё раз.");
+                            ConsoleMenu.WriteContinue();
+                        }
+                        
 
                         string? adress = Help.GetVictimAdress();
 
@@ -65,117 +79,147 @@ public class Task2
                         if (string.IsNullOrWhiteSpace(descriptions))
                             break;
 
-                        humans.Add(new Humans(name, age.Value, adress, descriptions));
+                        humans.Add(new Humans(
+                            name, 
+                            age.Value, 
+                            adress, 
+                            descriptions));
 
-                        Console.WriteLine("+----------------------------------------------------------...+");
-                        Console.WriteLine("\\ Вы добавили ещё одну жертву в архив. Нажмите Enter для продолжения.");
-                        Console.ReadKey();
+                        ConsoleMenu.WriteFiller();
+                        ConsoleMenu.WriteLine(
+                            "Вы добавили ещё одну жертву в архив.");
+                        ConsoleMenu.WriteContinue();
                     }
                     break;
                 case "2":
                     {
-                        int? n = Help.GetIndexOfVictim() - 1;
+                        int? indexOfVictim = Help.GetIndexOfVictim();
 
-                        if (n is null || n < 0 || n >= humans.Count)
+                        if (indexOfVictim is null)
                             break;
+                        else if (indexOfVictim < 0 || indexOfVictim >= humans.Count)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLine(
+                                "Ошибка! Вы ввели несуществующий номер жертвы. Попробуйте ещё раз.");
+                            ConsoleMenu.WriteContinue();
+                            break;
+                        }
 
-                        humans.RemoveAt(n.Value);
-                        Console.WriteLine("+----------------------------------------------------------...+");
-                        Console.WriteLine("\\ Вы удалили жертву политических репрессий из архива. Нажмите Enter для продолжения.");
-                        Console.ReadKey();
+                        humans.RemoveAt(indexOfVictim.Value);
+                        ConsoleMenu.WriteFiller();
+                        ConsoleMenu.WriteLine("Вы удалили жертву политических репрессий из архива.");
+                        ConsoleMenu.WriteContinue();
                     }
                     break;
                 case "3":
                     {
-                        int? n = Help.GetIndexOfVictim() - 1;
+                        int? indexOfVictim = Help.GetIndexOfVictim();
 
-                        if (n is null || n < 0 || n >= humans.Count)
+                        if (indexOfVictim is null)
                             break;
+                        else if (indexOfVictim < 0 || indexOfVictim >= humans.Count)
+                        {
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLine(
+                                "Ошибка! Вы ввели несуществующий номер жертвы. Попробуйте ещё раз.");
+                            ConsoleMenu.WriteContinue();
+                            break;
+                        }
 
                         while (true)
                         {
                             Console.Clear();
-                            Console.WriteLine("+----------------------------------------------------------...+");
-                            Console.WriteLine("| Вы хотите изменить архивные данные у");
-                            Console.WriteLine("| "
-                                + humans[n.Value].GetName() + " "
-                                + humans[n.Value].GetAge() + " "
-                                + humans[n.Value].GetAdress() + " "
-                                + humans[n.Value].GetDescriptions());
-                            Console.WriteLine("+----------------------------------------------------------...+");
-                            Console.WriteLine("| 1) Изменить ФИО");
-                            Console.WriteLine("| 2) Изменить возраст");
-                            Console.WriteLine("| 3) Изменить адрес");
-                            Console.WriteLine("| 4) Изменить применённую санкцию");
-                            Console.WriteLine("+----------------------------------------------------------...+");
-                            Console.WriteLine("\\ Выберите цифру действия: ");
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLine("Вы хотите изменить архивные данные у");
+                            ConsoleMenu.WriteLine(
+                                humans[indexOfVictim.Value].Name + " "
+                                + humans[indexOfVictim.Value].Age + " "
+                                + humans[indexOfVictim.Value].Adress + " "
+                                + humans[indexOfVictim.Value].Descriptions);
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.WriteLine("1) Изменить ФИО");
+                            ConsoleMenu.WriteLine("2) Изменить возраст");
+                            ConsoleMenu.WriteLine("3) Изменить адрес");
+                            ConsoleMenu.WriteLine("4) Изменить применённую санкцию");
+                            ConsoleMenu.WriteFiller();
+                            ConsoleMenu.Write("Выберите цифру действия: ");
 
-                            choosed_task = Console.ReadLine();
+                            choosedTaskNumber = Console.ReadLine();
 
-                            if (string.IsNullOrWhiteSpace(choosed_task))
+                            if (string.IsNullOrWhiteSpace(choosedTaskNumber))
                                 break;
 
-                            switch (choosed_task)
+                            switch (choosedTaskNumber)
                             {
                                 case "1":
                                     {
-                                        Console.WriteLine("/----------------------------------------------------------...+");
-                                        Console.WriteLine("| Введите новое ФИО: ");
+                                        ConsoleMenu.WriteFiller();
+                                        ConsoleMenu.Write("Введите новое ФИО: ");
 
                                         string? input = Console.ReadLine();
 
                                         if (string.IsNullOrWhiteSpace(input))
                                             break;
 
-                                        humans[n.Value].SetName(input);
-                                        Console.WriteLine("\\ Вы изменили ФИО жерты. Нажмите Enter для продолжения.");
-                                        Console.ReadKey();
+                                        humans[indexOfVictim.Value].Name = input;
+                                        ConsoleMenu.WriteLine("Вы изменили ФИО жерты.");
+                                        ConsoleMenu.WriteContinue();
                                     }
                                     break;
                                 case "2":
                                     {
-                                        Console.WriteLine("/----------------------------------------------------------...+");
-                                        Console.WriteLine("| Введите новый возраст: ");
+                                        ConsoleMenu.WriteFiller();
+                                        ConsoleMenu.Write("Введите новый возраст: ");
 
                                         string? input = Console.ReadLine();
 
                                         if (string.IsNullOrWhiteSpace(input))
                                             break;
 
-                                        if (int.TryParse(input, out int age))
-                                            humans[n.Value].SetAge(age);
-                                        Console.WriteLine("\\ Вы изменили возраст жерты. Нажмите Enter для продолжения.");
-                                        Console.ReadKey();
+                                        if (int.TryParse(input, out int age)
+                                            && age > 0)
+                                        {
+                                            humans[indexOfVictim.Value].Age = age;
+                                            ConsoleMenu.WriteLine("Вы изменили возраст жерты.");
+                                            ConsoleMenu.WriteContinue();
+                                        }
+                                        else
+                                        {
+                                            ConsoleMenu.WriteLine(
+                                                $"Ошибка! Вы ввели невозможное значение возраста! Попробуйте ещё раз.");
+                                            ConsoleMenu.WriteContinue();
+                                        }
                                     }
                                     break;
                                 case "3":
                                     {
-                                        Console.WriteLine("/----------------------------------------------------------...+");
-                                        Console.WriteLine("| Введите новый адрес: ");
+                                        ConsoleMenu.WriteFiller();
+                                        ConsoleMenu.WriteLine("Введите новый адрес: ");
 
                                         string? input = Console.ReadLine();
 
                                         if (string.IsNullOrWhiteSpace(input))
                                             break;
 
-                                        humans[n.Value].SetAdress(input);
-                                        Console.WriteLine("\\ Вы изменили адрес жерты. Нажмите Enter для продолжения.");
-                                        Console.ReadKey();
+                                        humans[indexOfVictim.Value].Adress = input;
+                                        ConsoleMenu.WriteLine("Вы изменили адрес жерты.");
+                                        ConsoleMenu.WriteContinue();
                                     }
                                     break;
                                 case "4":
                                     {
-                                        Console.WriteLine("/----------------------------------------------------------...+");
-                                        Console.WriteLine("| Введите новую применённую санкцию: ");
+                                        ConsoleMenu.WriteFiller();
+                                        ConsoleMenu.WriteLine("Введите новую применённую санкцию: ");
 
                                         string? input = Console.ReadLine();
 
                                         if (string.IsNullOrWhiteSpace(input))
                                             break;
 
-                                        humans[n.Value].SetDescriptions(input);
-                                        Console.WriteLine("\\ Вы изменили примененённую санкцию жерты. Нажмите Enter для продолжения.");
-                                        Console.ReadKey();
+                                        humans[indexOfVictim.Value].Descriptions = input;
+                                        ConsoleMenu.WriteLine("Вы изменили примененённую санкцию жерты.");
+                                        ConsoleMenu.WriteContinue();
                                     }
                                     break;
                             }

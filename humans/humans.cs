@@ -1,27 +1,45 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace HumansLib
 {
     public class Humans
     {
-        string name;
-        int age;
-        string adress;
-        string descriptions;
-        public Humans(string name, int age, string adress, string descriptions)
+        string _name;
+        int _age;
+        string _adress;
+        string _descriptions;
+
+        public Humans(string Name, int Age, string Adress, string Descriptions)
         {
-            this.name = name;
-            this.age = age;
-            this.adress = adress;
-            this.descriptions = descriptions;
+            _name = Name;
+            _age = Age;
+            _adress = Adress;
+            _descriptions = Descriptions;
         }
-        public string GetName() => name;
-        public int GetAge() => age;
-        public string GetAdress() => adress;
-        public string GetDescriptions() => descriptions;
-        public void SetName(string name) => this.name = name;
-        public int SetAge(int age) => this.age = age;
-        public string SetAdress(string adress) => this.adress = adress;
-        public string SetDescriptions(string descriptions) => this.descriptions = descriptions;
+
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+
+        public int Age
+        {
+            get => _age;
+            set => _age = value;
+        }
+
+        public string Adress
+        {
+            get => _adress;
+            set => _adress = value;
+        }
+
+        public string Descriptions
+        {
+            get => _descriptions;
+            set => _descriptions = value;
+        }
     }
 }

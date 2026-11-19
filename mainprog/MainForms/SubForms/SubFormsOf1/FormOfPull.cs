@@ -32,10 +32,10 @@ namespace MainProg.MainForms.SubForms.SubFormsOf1
 
             if (!string.IsNullOrWhiteSpace(textBox.Text)
                 && int.TryParse(textBox.Text, out int n)
-                && n > 0 && n <= buckets[index].GetApplesCount())
+                && n > 0 && n <= buckets[index].Apples)
             {
                 buckets[index].RemoveApples(n);
-                info_label.Text = buckets[index].GetApplesCount().ToString();
+                info_label.Text = buckets[index].Apples.ToString();
             }
             this.Close();
         }
